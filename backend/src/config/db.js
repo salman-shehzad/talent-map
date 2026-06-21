@@ -25,6 +25,7 @@ async function connectDb() {
   if (!cached.promise) {
     cached.promise = mongoose
       .connect(uri, {
+        dbName: "talentmap",
         serverSelectionTimeoutMS: 15000,
         socketTimeoutMS: 45000,
         bufferCommands: false,
