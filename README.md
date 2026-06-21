@@ -1,56 +1,60 @@
-# Smart Student Clearance & Degree Issuance System
+# TalentMap - Smart Recommender
 
-A MERN stack web app for university student clearance and digital degree issuance.
+TalentMap is a MERN stack web application designed to help candidates map their career paths by discovering their skill gaps and receiving dynamic, AI-matched job opportunities based on their profile, skills, and interests.
 
-## Stack
+## Features
 
-- MongoDB + Mongoose
-- Express.js + Node.js
-- React + Vite
-- JWT authentication and role-based access control
+- **Candidate Dashboard:** Register, manage skills and interests, and view personalized job recommendations with match scores.
+- **Career Roadmaps:** Generate step-by-step learning paths to acquire missing skills and qualify for target roles.
+- **Job Matcher:** A smart recommendation engine that ranks job openings against a candidate's profile.
+- **Content Management:** Staff can manage job listings, skill taxonomies, and curated learning resources (courses and certifications).
+- **Analytics & Admin Panel:** Administrators can manage user roles, view platform analytics, and monitor audit logs.
+- **System Configuration:** Super Admins can adjust the weights of the recommendation engine (e.g., Skill Weight vs. Interest Weight).
 
-## Run
+## Technology Stack
 
-1. Install dependencies:
+- **Database:** MongoDB Atlas + Mongoose
+- **Backend:** Node.js + Express.js
+- **Frontend:** React + Vite
+- **Authentication:** JWT (JSON Web Tokens) with Role-Based Access Control (RBAC)
+- **Deployment:** Vercel ready (Serverless APIs)
 
-```bash
-npm install
-```
+## Setup & Installation
 
-2. Copy backend environment settings:
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-```bash
-copy backend\.env.example backend\.env
-```
+2. **Configure Environment Variables:**
+   Set up your `backend/.env` file. Ensure that your MongoDB URI specifies the `talentmap` database:
+   ```env
+   PORT=5000
+   MONGO_URI=mongodb+srv://<user>:<password>@<cluster>.mongodb.net/talentmap?retryWrites=true&w=majority
+   JWT_SECRET=your_jwt_secret_here
+   CLIENT_URL=http://localhost:5173
+   ```
 
-3. Configure MongoDB Atlas in `backend/.env`:
+3. **Seed the Demo Database:**
+   Populate the database with sample skills, learning resources, jobs, and users:
+   ```bash
+   npm run seed
+   ```
 
-```bash
-MONGO_URI=mongodb+srv://<db_user>:<db_password>@<cluster-host>/talentmap?appName=<app_name>
-```
-
-4. Seed demo data:
-
-```bash
-npm run seed
-```
-
-5. Start frontend and backend:
-
-```bash
-npm run dev
-```
-
-Open `http://localhost:5173`.
+4. **Run the Application:**
+   Start both the frontend and backend development servers concurrently:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ## Demo Accounts
 
-| Role | Email | Password |
+You can log in using the following accounts after running the seed command (Password for all: `password123`):
+
+| Role | Email | Access Level |
 | --- | --- | --- |
-| Student | `student@university.edu` | `password123` |
-| Library Staff | `library@university.edu` | `password123` |
-| Accounts Staff | `accounts@university.edu` | `password123` |
-| Hostel Staff | `hostel@university.edu` | `password123` |
-| Administration Staff | `administration@university.edu` | `password123` |
-| Admin | `admin@university.edu` | `password123` |
-| Examination | `exam@university.edu` | `password123` |
+| Candidate | `student@talentmap.edu` | Manage profile, view job matches, build roadmaps. |
+| Content Manager | `manager@talentmap.edu` | Manage job listings, skill taxonomies, and learning resources. |
+| Administrator | `admin@talentmap.edu` | Access analytics, manage user roles, view audit logs. |
+| Super Admin | `superadmin@talentmap.edu` | Adjust system config and recommendation engine weights. |
