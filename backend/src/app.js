@@ -14,7 +14,6 @@ const connectDb = require("./config/db");
 
 const app = express();
 
-// CORS — allow local dev and production Vercel URL
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
@@ -24,8 +23,13 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Allow requests with no origin (mobile apps, curl, Postman, same-origin Vercel)
-      if (!origin || allowedOrigins.includes(origin)) {
+      // Allow requests with no origin (mobile apps, curl, same-origin),
+      // configured origins, and all vercel.app preview URLs
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        origin.endsWith(".vercel.app")
+      ) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
