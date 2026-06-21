@@ -3,6 +3,6 @@
 // On Vercel, env vars are set via the dashboard (no .env file needed).
 // Locally, app.js loads dotenv from backend/.env.
 
-const app = require("../backend/app");
+const app = require("../backend/src/app");
 
 module.exports = app;
