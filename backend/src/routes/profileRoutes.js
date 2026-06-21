@@ -65,7 +65,7 @@ router.get("/recommendations", requireAuth, async (req, res) => {
     res.json({ recommendations });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Failed to compute recommendations." });
+    res.status(500).json({ error: "Failed to compute recommendations. " + err.message });
   }
 });
 
