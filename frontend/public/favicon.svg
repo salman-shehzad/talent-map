@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2F5D50" />
+      <stop offset="100%" stop-color="#84CC16" />
+    </linearGradient>
+  </defs>
+  <!-- Background Shape -->
+  <rect width="512" height="512" rx="110" fill="#ffffff" />
+  <rect width="460" height="460" x="26" y="26" rx="90" fill="none" stroke="url(#logo-grad)" stroke-width="20" />
+  <!-- TalentMap Compass / Pin Symbol -->
+  <path d="M256,80 C150,80 80,150 80,256 C80,362 256,432 256,432 C256,432 432,362 432,256 C432,150 362,80 256,80 Z" fill="url(#logo-grad)" />
+  <circle cx="256" cy="230" r="65" fill="#ffffff" />
+  <polygon points="256,190 275,245 256,235 237,245" fill="#2F5D50" />
+  <polygon points="256,270 275,245 256,235 237,245" fill="#84CC16" />
+</svg>
